@@ -126,25 +126,28 @@
     }
 
     .gallery-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      color: var(--highlight);
-    }
+  text-align: center;
+}
 
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 0 1rem;
-    }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 1rem;
+}
 
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+.gallery-item {
+  max-width: 300px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
     .contact-columns {
       display: flex;
@@ -289,7 +292,7 @@
     <p>Mr. & Mrs. K. Jaganath – M. Jayalakshmi<br>618, Jalan S2 H17, Seremban 2</p>
     <p>& Mr. & Mrs. Vennu Narayanan – Vasanthi Gengadaram<br>278, Jalan Rasah, Seremban</p>
     <p><em>Request the honor of your presence to grace the wedding of our beloved children</em></p>
-    <div class="names">Lakshwanath Jaganath<br>Weds<br>Susmeethaa Vennu</div>
+    <div class="names">Lakshwanath Jaganath<br>&<br>Susmeethaa Vennu</div>
     <p><strong>Friday, 29th August 2025</strong><br>9.30 a.m. – 11.30 a.m.<br>Dewan Rasah Amman, Seremban</p>
     <div class="map-embed">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;" allowfullscreen></iframe>
@@ -312,7 +315,7 @@
 
   <!-- Gallery -->
   <section class="gallery-container" id="gallery">
-    <h2 class="gallery-title">Our Journey Together</h2>
+    <h2 class="gallery-title">Us</h2>
     <div class="gallery-grid">
   <div class="gallery-item"><img src="placeholder2.jpg" alt="Couple Photo"></div>
 </div>
