@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lakshwanath Weds Susmeethaa</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
       --bg: #fdfaf6;
@@ -21,8 +22,159 @@
       background-color: var(--bg);
       color: var(--text);
       background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      padding-top: 70px; /* Space for fixed nav */
     }
 
+    /* Floating Navigation */
+    .floating-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      backdrop-filter: blur(5px);
+    }
+
+    .nav-link {
+      margin: 0 15px;
+      color: var(--highlight);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background-color: var(--highlight);
+      color: white;
+    }
+
+    /* Countdown Timer */
+    .countdown-container {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(248, 200, 220, 0.7), rgba(200, 230, 220, 0.7));
+      margin: 2rem auto;
+      max-width: 800px;
+      border-radius: 10px;
+    }
+
+    .countdown-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: var(--highlight);
+      margin-bottom: 1rem;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      min-width: 80px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .countdown-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--highlight);
+    }
+
+    .countdown-label {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* Music Player */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .music-icon {
+      color: var(--highlight);
+      font-size: 1.2rem;
+    }
+
+    /* Photo Gallery */
+    .gallery-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .gallery-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: var(--highlight);
+      margin-bottom: 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background: white;
+      padding: 15px;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    /* Existing styles */
     header {
       text-align: center;
       background: linear-gradient(160deg, #fbe3e8, #e6f0ec);
@@ -149,18 +301,74 @@
         flex-direction: column;
         gap: 0.5rem;
       }
+
+      .countdown {
+        gap: 10px;
+      }
+
+      .countdown-item {
+        min-width: 70px;
+        padding: 10px;
+      }
+
+      .countdown-number {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
+<!-- Floating Navigation -->
+<nav class="floating-nav">
+  <a href="#home" class="nav-link">Home</a>
+  <a href="#countdown" class="nav-link">Countdown</a>
+  <a href="#ceremony" class="nav-link">Ceremony</a>
+  <a href="#reception" class="nav-link">Reception</a>
+  <a href="#gallery" class="nav-link">Gallery</a>
+  <a href="#contact" class="nav-link">Contact</a>
+</nav>
+
+<!-- Music Player -->
+<div class="music-player" id="musicToggle">
+  <i class="fas fa-music music-icon"></i>
+  <audio id="bgMusic" loop>
+    <!-- Add your music file here -->
+    <source src="your-music-file.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<header id="home">
   <h1>Lakshwanath Weds Susmeethaa</h1>
   <p>29th & 30th August 2025 • Seremban, Malaysia</p>
 </header>
 
 <main>
-  <div class="card">
+  <!-- Countdown Timer -->
+  <section class="countdown-container" id="countdown">
+    <h2 class="countdown-title">Counting Down To Our Special Day</h2>
+    <div class="countdown">
+      <div class="countdown-item">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wedding Ceremony -->
+  <div class="card" id="ceremony">
     <h2>Wedding Invitation</h2>
     <div class="divider"></div>
     <p>Mr. & Mrs. K. Jaganath – M. Jayalakshmi<br>
@@ -188,7 +396,8 @@
     </div>
   </div>
 
-  <div class="card">
+  <!-- Wedding Reception -->
+  <div class="card" id="reception">
     <h2>Wedding Dinner Reception</h2>
     <div class="divider"></div>
     <p><em>Join us for a joyous celebration</em></p>
@@ -211,6 +420,41 @@
     </div>
   </div>
 
+  <!-- Photo Gallery -->
+  <section class="gallery-container" id="gallery">
+    <h2 class="gallery-title">Our Journey Together</h2>
+    <div class="gallery-grid">
+      <!-- Gallery items will be added here -->
+      <!-- Replace with your actual images -->
+      <div class="gallery-item">
+        <img src="placeholder1.jpg" alt="Couple Photo 1" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img src="placeholder2.jpg" alt="Couple Photo 2" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img src="placeholder3.jpg" alt="Couple Photo 3" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img src="placeholder4.jpg" alt="Couple Photo 4" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img src="placeholder5.jpg" alt="Couple Photo 5" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img src="placeholder6.jpg" alt="Couple Photo 6" class="gallery-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <div class="card" id="contact">
+    <h2>Contact Us</h2>
+    <div class="divider"></div>
+    <div class="qr-code">
+      <p><strong>Kindly scan QR code</strong></p>
+      <img src="qr-code.png" alt="QR Code">
+    </div>
     <div class="contact-columns">
       <div class="contact-column">
         <h3>Groom's Contact</h3>
@@ -230,6 +474,64 @@
   <p>We look forward to celebrating this beautiful event with you!</p>
   <p>&copy; 2025 Susmeethaa & Lakshwanath | All rights reserved</p>
 </footer>
+
+<script>
+  // Countdown Timer
+  function updateCountdown() {
+    const weddingDate = new Date("August 29, 2025 09:30:00").getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+    document.getElementById("hours").innerHTML = Math.floor(hours).toString().padStart(2, '0');
+    document.getElementById("minutes").innerHTML = Math.floor(minutes).toString().padStart(2, '0');
+    document.getElementById("seconds").innerHTML = Math.floor(seconds).toString().padStart(2, '0');
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // Smooth scrolling for navigation
+  document.querySelectorAll('.nav-link').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Music player functionality
+  const musicToggle = document.getElementById('musicToggle');
+  const bgMusic = document.getElementById('bgMusic');
+  let isPlaying = false;
+
+  musicToggle.addEventListener('click', function() {
+    if (isPlaying) {
+      bgMusic.pause();
+      musicToggle.innerHTML = '<i class="fas fa-music music-icon"></i>';
+    } else {
+      bgMusic.play();
+      musicToggle.innerHTML = '<i class="fas fa-pause music-icon"></i>';
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Auto-play music (commented out - uncomment if you want autoplay)
+  // Note: Many browsers block autoplay, so it's better to let users start it
+  // window.addEventListener('click', function() {
+  //   if (!isPlaying) {
+  //     bgMusic.play();
+  //     musicToggle.innerHTML = '<i class="fas fa-pause music-icon"></i>';
+  //     isPlaying = true;
+  //   }
+  // });
+</script>
 
 </body>
 </html>
