@@ -4,64 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Susmeethaa Weds Lakshwanath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff9f9;
+        :root {
+            --primary: #8b4513; /* SaddleBrown */
+            --secondary: #d2b48c; /* Tan */
+            --accent: #556b2f; /* DarkOliveGreen */
+            --light: #fff8dc; /* Cornsilk */
+            --highlight: #ff69b4; /* HotPink */
         }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: var(--light);
+            background-image: url('https://transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://cdn.pixabay.com/photo/2017/09/26/13/31/floral-2788862_960_720.png');
+            opacity: 0.1;
+            background-size: 300px;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin: 0;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            position: relative;
+            font-style: italic;
+        }
+        
         .invitation-card {
             background-color: white;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            margin: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
-        }
-        h1, h2 {
-            color: #8b0000;
-            text-align: center;
-        }
-        .divider {
-            border-top: 1px dashed #8b0000;
-            margin: 20px 0;
-        }
-        .names {
-            font-size: 1.2em;
-            margin: 15px 0;
-            font-weight: bold;
-        }
-        .symbols {
-            text-align: left;
-            margin: 30px auto;
-            max-width: 600px;
-        }
-        .symbol-item {
-            margin-bottom: 15px;
-        }
-        .contact-info {
-            background-color: #f8f8f8;
-            padding: 15px;
-            margin: 20px 0;
             border-radius: 5px;
+            border-top: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .invitation-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url('https://cdn.pixabay.com/photo/2017/01/31/23/42/decorative-2028037_960_720.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+        }
+        
+        h1, h2, h3 {
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .divider {
+            border-top: 1px dashed var(--secondary);
+            margin: 2rem auto;
+            width: 50%;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: "✻";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: var(--highlight);
+        }
+        
+        .names {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .names p {
+            margin: 0.5rem 0;
+        }
+        
+        .symbols {
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 700px;
+            padding: 2rem;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .symbol-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dotted var(--secondary);
+        }
+        
+        .symbol-item:last-child {
+            border-bottom: none;
+        }
+        
+        .symbol-item h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(85, 107, 47, 0.1));
+            padding: 2rem;
+            margin: 3rem 2rem;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid var(--secondary);
+        }
+        
         .qr-code {
             text-align: center;
-            margin: 20px 0;
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: white;
+            display: inline-block;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
+        
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .contact-columns {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .contact-column {
+            flex: 1;
+            min-width: 250px;
+            margin: 1rem;
+            padding: 1rem;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 5px;
+        }
+        
         .footer {
             font-style: italic;
-            margin-top: 30px;
+            margin-top: 3rem;
             text-align: center;
+            padding: 2rem;
+            color: var(--primary);
+            background-color: rgba(210, 180, 140, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.2rem;
+            }
+            
+            .invitation-card {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .contact-columns {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Susmeethaa Weds Lakshwanath</h1>
+        <p>29th & 30th August 2025 • Seremban, Malaysia</p>
+    </div>
+
     <div class="invitation-card">
-        <h1>Wedding Invitation</h1>
+        <h2>Wedding Invitation</h2>
         
         <p>Mr. & Mrs. K. Jaganath - M. Jayalakshmi<br>
         618, Jalan S2 H17, Park Avenue, Seremban 2,<br>
@@ -76,11 +238,11 @@
         
         <div class="divider"></div>
         
-        <p><strong>to grace the auspicious marriage of our beloved children</strong></p>
+        <p><strong>To grace the auspicious marriage of our beloved children</strong></p>
         
         <div class="divider"></div>
         
-        <p>Grandson of (The Late Mr. N. Kandasamy) - Hadam M. Sakunthala &<br>
+        <p>Grandson of (The Late Mr. N. Kandasamy) - Madam M. Sakunthala &<br>
         (The Late Mr. & Mrs. R. Muthusamy - T. Chandralehka)</p>
         
         <div class="divider"></div>
@@ -101,7 +263,7 @@
     </div>
 
     <div class="invitation-card">
-        <h1>Wedding Dinner Invitation</h1>
+        <h2>Wedding Dinner Invitation</h2>
         
         <p>Mr. & Mrs. K. Jaganath - M. Jayalakshmi<br>
         618, Jalan S2 H17, Park Avenue, Seremban 2, 70300 Seremban, Negeri Sembilan, Malaysia.</p>
@@ -114,7 +276,7 @@
         
         <div class="divider"></div>
         
-        <p><strong>to the Wedding Dinner Reception of our beloved children</strong></p>
+        <p><strong>To the Wedding Dinner Reception of our beloved children</strong></p>
         
         <div class="divider"></div>
         
@@ -132,24 +294,24 @@
     </div>
 
     <div class="contact-info">
+        <h2>Contact Information</h2>
+        
         <div class="qr-code">
             <p><strong>Kindly scan QR code</strong></p>
             <!-- Replace with your actual QR code image -->
-            <img src="qr-code.png" alt="QR Code" width="150">
+            <img src="qr-code.png" alt="QR Code">
         </div>
         
-        <h2>Contact Information</h2>
-        
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-            <div>
+        <div class="contact-columns">
+            <div class="contact-column">
                 <h3>Groom's Contact</h3>
-                <p>Dr. Durjagajayshini<br>
+                <p>Dr. Ourjagajayshini<br>
                 Mr. Kharish</p>
                 <p>012-605 5016<br>
                 012-601 9743</p>
             </div>
             
-            <div>
+            <div class="contact-column">
                 <h3>Bride's Contact</h3>
                 <p>Mr. Vennu<br>
                 Ms. Priyam</p>
@@ -158,76 +320,14 @@
             </div>
         </div>
         
-        <p style="text-align: center; margin-top: 20px;">
-            <em>Printed By : ADD Printing Enterprise (012-611 7597 | 019-661 7597)</em>
-        </p>
-    </div>
-
-    <div class="symbols">
-        <h2>Symbolic Meanings</h2>
-        
-        <div class="symbol-item">
-            <h3>1. SIGNAL</h3>
-            <p>To remain friends lifelong</p>
-        </div>
-        
-        <div class="symbol-item">
-            <h3>2. GŌĒMŪŅĀOŠARŪŅANĪ</h3>
-            <p>To nourish each other</p>
-        </div>
-        
-        <div class="symbol-item">
-            <h3>3. GŌĒMŪŅĀOŠARŪŅANĪ</h3>
-            <p>To grow together in strength</p>
-        </div>
-        
-        <div class="symbol-item">
-            <h3>4. GŌĒMŪŅĀOŠARŪŅANĪ</h3>
-            <p>To preserve our wealth</p>
-        </div>
-        
-        <div class="symbol-item">
-            <h3>5. GŌĒMŪŅĀOŠARŪŅANĪ</h3>
-            <p>To share our joys and sorrows</p>
-        </div>
     </div>
 
     <div class="footer">
-        <p>We look forward to celebrating with you!</p>
+        <p>We look forward to celebrating our special day with you!</p>
     </div>
 </body>
-</html>
-    <!-- Wedding Ceremony Section -->
-    <section>
-        <h2>The Wedding Ceremony</h2>
-        <p><strong>Date:</strong> 29th August 2025</p>
-        <p><strong>Time:</strong> 9:30 AM</p>
-        <p><strong>Venue:</strong> Rasah Mariamman Temple Hall</p>
-        <p>Join us for a sacred ceremony as we begin our journey together. We look forward to sharing this beautiful day with you.</p>
-    </section>
-
-    <!-- Reception Section -->
-    <section>
-        <h2>The Reception</h2>
-        <p><strong>Date:</strong> 30th August 2025</p>
-        <p><strong>Time:</strong> 7:31 PM</p>
-        <p><strong>Venue:</strong> King Hall, City Kingdom, Seremban</p>
-        <p>Celebrate with us at the grand reception, where we'll enjoy delicious food, music, and dancing! It’s a night to remember.</p>
-    </section>
-
-    <!-- Gallery Section (Optional) -->
-    <section class="gallery">
-        <h2>Wedding Memories</h2>
-        <p>We'll add our precious memories here after the event. Stay tuned!</p>
-        <!-- Sample image -->
-        <!-- <img src="your-image.jpg" alt="Wedding photo"> -->
-    </section>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Susmeethaa & Lakshwanath | All rights reserved</p>
     </footer>
-
-</body>
 </html>
-
