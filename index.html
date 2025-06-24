@@ -290,8 +290,9 @@
     <h2>Wedding Invitation</h2>
     <div class="divider"></div>
     <p>Mr. & Mrs. K. Jaganath – M. Jayalakshmi<br>618, Jalan S2 H17, Seremban 2</p>
-    <p>& Mr. & Mrs. Vennu Narayanan – Vasanthi Gengadaram<br>278, Jalan Rasah, Seremban</p>
-    <p><em>Request the honor of your presence to grace the wedding of our beloved children</em></p>
+    <p>&</p>
+    <p>Mr. & Mrs. Vennu Narayanan – Vasanthi Gengadaram<br>278, Jalan Rasah, Seremban</p>
+    <p><em>Request the honor of your presence at the wedding of our beloved children</em></p>
     <div class="names">Lakshwanath Jaganath<br>&<br>Susmeethaa Vennu</div>
     <p><strong>Friday, 29th August 2025</strong><br>9.30 a.m. – 11.30 a.m.<br>Dewan Rasah Amman, Seremban</p>
     <div class="map-embed">
@@ -305,7 +306,7 @@
     <h2>Wedding Dinner Reception</h2>
     <div class="divider"></div>
     <p><em>Join us for a joyous celebration</em></p>
-    <div class="names">Lakshwanath & Susmeethaa</div>
+    <div class="names">Lakshwanath<br>&<br>Susmeethaa</div>
     <p><strong>Saturday, 30th August 2025</strong><br>7.30 p.m. – 11.00 p.m.<br>King Ballroom, My Fame Hotel, City Kingdom, Seremban</p>
     <div class="map-embed">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;" allowfullscreen></iframe>
@@ -347,6 +348,56 @@
 </footer>
 
 <script>
+  const bgMusic = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+  let isPlaying = false;
+
+  // Play music with sound after any user interaction
+  const enableMusic = () => {
+    if (!isPlaying) {
+      bgMusic.muted = false;
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        musicToggle.innerHTML = '<i class="fas fa-pause music-icon"></i>';
+      }).catch((err) => {
+        console.log('Autoplay failed:', err);
+      });
+    }
+    document.removeEventListener('click', enableMusic);
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    bgMusic.play(); // Start muted autoplay
+  });
+
+  // Unmute and play on first user click
+  document.addEventListener('click', enableMusic, { once: true });
+
+  // Music toggle button
+  musicToggle.addEventListener('click', function () {
+    if (isPlaying) {
+      bgMusic.pause();
+      musicToggle.innerHTML = '<i class="fas fa-music music-icon"></i>';
+      isPlaying = false;
+    } else {
+      bgMusic.muted = false;
+      bgMusic.play();
+      musicToggle.innerHTML = '<i class="fas fa-pause music-icon"></i>';
+      isPlaying = true;
+    }
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      target.scrollIntoView({ behavior: 'smooth' });
+      enableMusic(); // Ensure music starts even on nav click
+    });
+  });
+
+  // Countdown Timer
   function updateCountdown() {
     const weddingDate = new Date("August 29, 2025 09:30:00").getTime();
     const now = new Date().getTime();
@@ -365,50 +416,6 @@
 
   setInterval(updateCountdown, 1000);
   updateCountdown();
-
-  const bgMusic = document.getElementById('bgMusic');
-  const musicToggle = document.getElementById('musicToggle');
-  let isPlaying = false;
-
-  // Unmute and play on load (if browser allows)
-  window.addEventListener('DOMContentLoaded', () => {
-    bgMusic.play().then(() => {
-      bgMusic.muted = false;
-      isPlaying = true;
-      musicToggle.innerHTML = '<i class="fas fa-pause music-icon"></i>';
-    }).catch(() => {
-      // Some browsers block autoplay until user interaction
-    });
-  });
-
-  // Toggle music on player button click
-  musicToggle.addEventListener('click', function () {
-    if (isPlaying) {
-      bgMusic.pause();
-      musicToggle.innerHTML = '<i class="fas fa-music music-icon"></i>';
-    } else {
-      bgMusic.play();
-      bgMusic.muted = false;
-      musicToggle.innerHTML = '<i class="fas fa-pause music-icon"></i>';
-    }
-    isPlaying = !isPlaying;
-  });
-
-  // Also trigger music play on any nav link click
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-
-      if (!isPlaying) {
-        bgMusic.play().then(() => {
-          bgMusic.muted = false;
-          musicToggle.innerHTML = '<i class="fas fa-pause music-icon"></i>';
-          isPlaying = true;
-        });
-      }
-    });
-  });
 </script>
 
 </body>
