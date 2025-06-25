@@ -120,6 +120,35 @@
       text-decoration: none;
     }
 
+    .map-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.direction-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--highlight);
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.direction-button:hover {
+  background-color: var(--accent);
+}
+
+.direction-button img {
+  height: 16px;
+}
+    
     .gallery-container {
       max-width: 1000px;
       margin: 2rem auto;
@@ -296,9 +325,17 @@
     <div class="names">Lakshwanath Jaganath<br>&<br>Susmeethaa Vennu</div>
     <p><strong>Friday, 29th August 2025</strong><br>9.30 a.m. – 11.30 a.m.<br>Dewan Rasah Amman, Seremban</p>
     <div class="map-embed">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;" allowfullscreen></iframe>
-      <a class="direction-button" href="https://maps.google.com/?q=Dewan+Rasah+Amman" target="_blank">Get Directions</a>
-    </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;" allowfullscreen></iframe><a class="direction-button" href="https://maps.google.com/?q=Dewan+Rasah+Amman" target="_blank">
+  <div class="map-buttons">
+  <a class="direction-button" href="https://maps.google.com/?q=Dewan+Rasah+Amman" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Google_Maps_icon_%282020%29.svg" alt="Google Maps">
+    Google Maps
+  </a>
+  <a class="direction-button" href="https://waze.com/ul/hw22rru8v8" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Waze_Logo.svg" alt="Waze">
+    Waze
+  </a>
+</div>
   </div>
 
   <!-- Reception -->
@@ -310,8 +347,16 @@
     <p><strong>Saturday, 30th August 2025</strong><br>7.30 p.m. – 11.00 p.m.<br>King Ballroom, My Fame Hotel, City Kingdom, Seremban</p>
     <div class="map-embed">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;" allowfullscreen></iframe>
-      <a class="direction-button" href="https://www.google.com/maps/place/265,+Jalan+A.S+Tambaiyah+6,+Seremban" target="_blank">Get Directions</a>
-    </div>
+      <div class="map-buttons">
+  <a class="direction-button" href="https://www.google.com/maps/place/265,+Jalan+A.S+Tambaiyah+6,+Seremban" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Google_Maps_icon_%282020%29.svg" alt="Google Maps">
+    Google Maps
+  </a>
+  <a class="direction-button" href="https://waze.com/ul/hw22rrxbhp" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Waze_Logo.svg" alt="Waze">
+    Waze
+  </a>
+</div>
   </div>
 
   <!-- Gallery -->
